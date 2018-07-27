@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\PlayerAttack.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/User/Documents/Tutorial Plataform 2D/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
