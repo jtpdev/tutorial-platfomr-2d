@@ -190,6 +190,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &774928805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774928806}
+  m_Layer: 0
+  m_Name: EnemyGroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &774928806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 774928805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.24, y: -0.161, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1304416316}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813413708
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +235,7 @@ GameObject:
   - component: {fileID: 813413716}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpforce: 500
+  jumpforce: 1000
 --- !u!114 &813413716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1106573350}
   - component: {fileID: 1106573351}
+  - component: {fileID: 1106573352}
   m_Layer: 0
   m_Name: Ataque1
   m_TagString: Untagged
@@ -430,6 +459,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19445343, y: 0.3865453}
   m_EdgeRadius: 0
+--- !u!114 &1106573352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106573349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98480d01671120d43a279ef8121684c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcaHorizontal: 15
+  forcaVertical: 10
+  tempoDeDestruicao: 1
 --- !u!1 &1304416310
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,9 +486,10 @@ GameObject:
   - component: {fileID: 1304416313}
   - component: {fileID: 1304416312}
   - component: {fileID: 1304416311}
+  - component: {fileID: 1304416317}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,18 +506,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010160428, y: 0.0754776}
+  m_Offset: {x: 0.010160431, y: 0.027267495}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.29}
+    oldSize: {x: 0.45, y: 0.31}
     newSize: {x: 0.45, y: 0.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25323138, y: 0.12743282}
+  m_Size: {x: 0.25323138, y: 0.031012613}
   m_EdgeRadius: 0
 --- !u!61 &1304416312
 BoxCollider2D:
@@ -491,7 +535,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.29}
+    oldSize: {x: 0.45, y: 0.31}
     newSize: {x: 0.45, y: 0.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -593,10 +637,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.313, y: 0.906, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
-  m_Children: []
+  m_Children:
+  - {fileID: 774928806}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304416317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1304416310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e78d87f1de1ad48948b9397d2f583d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 700
+  speed: -2
 --- !u!1001 &1490374923
 Prefab:
   m_ObjectHideFlags: 0
@@ -682,6 +740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1803847415}
   - component: {fileID: 1803847416}
+  - component: {fileID: 1803847417}
   m_Layer: 0
   m_Name: Ataque2
   m_TagString: Untagged
@@ -727,6 +786,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19445343, y: 0.3865453}
   m_EdgeRadius: 0
+--- !u!114 &1803847417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803847414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98480d01671120d43a279ef8121684c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forcaHorizontal: 5
+  forcaVertical: 10
+  tempoDeDestruicao: 1
 --- !u!1001 &2082601856
 Prefab:
   m_ObjectHideFlags: 0
